@@ -31,8 +31,6 @@ const createSendToken = (user, statusCode, res) => {
 
 exports.signup = async (req, res, next) => {
   try {
-   
-
     const newUser = await User.create({
       name: req.body.name,
       email: req.body.email,
@@ -78,7 +76,6 @@ exports.login = async (req, res) => {
 exports.protect = async (req, res, next) => {
   try {
     let token;
-   
 
     if (
       req.headers.authorization &&

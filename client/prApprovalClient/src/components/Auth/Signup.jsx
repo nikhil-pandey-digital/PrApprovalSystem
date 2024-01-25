@@ -1,6 +1,5 @@
-
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../Api/index";
 import "./Signup.css";
 
 const Signup = () => {
@@ -12,13 +11,11 @@ const Signup = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    axios
-      .post("http://localhost:5000/api/v1/users/signup", data)
-      .then((res) => {
-       localStorage.setItem('user', JSON.stringify(res.data.data.user));
-       localStorage.setItem('token', JSON.stringify(res.data.token));
-       navigate('/');
-      });
+    API.post("/api/v1/users/signup", data).then((res) => {
+      localStorage.setItem("user", JSON.stringify(res.data.data.user));
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+      navigate("/");
+    });
   };
 
   return (

@@ -36,7 +36,7 @@ const PrDetailsPage = () => {
       })
       .catch((err) => {
         console.log(err);
-        alert(err.message);
+        alert(err.response.data.error);
       });
   };
 
@@ -71,7 +71,7 @@ const PrDetailsPage = () => {
         navigate("/");
       })
       .catch((err) => {
-        alert(err.message);
+        alert(err.response.data.error);
       });
   };
 

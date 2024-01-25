@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/userRoutes");
-// const pullRequestsRoutes = require('./routes/pullRequestsRoutes');
+
 const app = express();
 
 const corsOptions = {
@@ -25,6 +25,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/users", userRoutes);
-// app.use('/api/v1/pullRequests', pullRequestsRoutes);
+
 
 module.exports = app;
