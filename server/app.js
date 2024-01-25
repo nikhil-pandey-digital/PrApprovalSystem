@@ -5,16 +5,17 @@ const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
-const corsOptions = {
-  origin: "https://pr-approval-system-client.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
+app.use(cors());
+// const corsOptions = {
+//   origin: "https://pr-approval-system-client.vercel.app",
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// };
 
-app.use(cors(corsOptions));
-// Middleware to handle preflight requests
-app.options("/api/v1/users/pullRequest/:id", cors(corsOptions));
+// app.use(cors(corsOptions));
+// // Middleware to handle preflight requests
+// app.options("/api/v1/users/pullRequest/:id", cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
